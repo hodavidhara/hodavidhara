@@ -1,5 +1,2 @@
-path:
-  logs: /data/es/logs
-  data: /data/es/data
 cluster:
   name: hodavidhara-es
