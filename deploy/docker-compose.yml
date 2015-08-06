@@ -1,9 +1,15 @@
+hodavidhara:
+  build: ./app/
+  volumes_from:
+    - data
+
 nginx:
   build: ./nginx/
   ports:
     - "80:80"
   links:
     - es:es
+    - hodavidhara:es
   volumes_from:
     - data
 

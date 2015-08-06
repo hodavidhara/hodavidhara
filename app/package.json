@@ -1,0 +1,25 @@
+{
+  "name": "hodavidhara",
+  "version": "1.0.0",
+  "description": "The awesome personal website of David Hara.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node --harmony app.js",
+    "startd": "nodemon --harmony app.js",
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/hodavidhara/hodavidhara.git"
+  },
+  "author": "David Hara <hakuhen@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/hodavidhara/hodavidhara/issues"
+  },
+  "license": "ISC",
+  "homepage": "http://hodavidhara.com",
+  "dependencies": {
+    "koa": "^0.21.0",
+    "koa-router": "^5.1.2"
+  }
+}
