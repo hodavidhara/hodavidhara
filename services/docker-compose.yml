@@ -1,7 +1,5 @@
 hodavidhara:
   build: ../app/
-  volumes_from:
-    - data
 
 nginx:
   build: ./nginx/
@@ -19,7 +17,7 @@ es:
     - data
 
 data:
-  image: busybox
+  build: ./es/
   command: /bin/true
   volumes:
-    - /var/docker:/data
+    - /var/docker/es:/data/es
