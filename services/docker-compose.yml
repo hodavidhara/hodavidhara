@@ -9,7 +9,7 @@ nginx:
     - "80:80"
   links:
     - es:es
-    - hodavidhara:es
+    - hodavidhara:hodavidhara
   volumes_from:
     - data
 
