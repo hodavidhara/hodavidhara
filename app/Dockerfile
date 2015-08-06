@@ -1,4 +1,5 @@
 FROM node:latest
+VOLUME /data/hodavidhara
 ADD . /data/hodavidhara
 WORKDIR /data/hodavidhara
 
