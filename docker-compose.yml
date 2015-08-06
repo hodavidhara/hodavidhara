@@ -1,0 +1,8 @@
+nginx:
+  build: ./nginx/
+  ports:
+    - "80:80"
+  links:
+    - es:es
+es:
+  image: elasticsearch:latest
