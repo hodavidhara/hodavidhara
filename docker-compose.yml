@@ -4,5 +4,16 @@ nginx:
     - "80:80"
   links:
     - es:es
+  volumes_from:
+    - data
+
 es:
-  image: elasticsearch:latest
+  build: ./es/
+  volumes_from:
+    - data
+
+data:
+  image: busybox
+  command: /bin/true
+  volumes:
+    - /var/docker:/data
