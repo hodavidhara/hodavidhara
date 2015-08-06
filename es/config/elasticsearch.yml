@@ -1,6 +1,6 @@
 path:
   logs: /data/es/logs
   data: /data/es/data
-  plugin: /data/es/plugin
+  plugins: /data/es/plugins
 cluster:
   name: hodavidhara-es
