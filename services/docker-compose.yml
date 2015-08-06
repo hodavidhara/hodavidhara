@@ -20,4 +20,4 @@ data:
   build: ./es/
   command: /bin/true
   volumes:
-    - /var/docker/es:/data/es
+    - /data/es
