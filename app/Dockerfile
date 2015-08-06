@@ -1,6 +1,6 @@
 FROM node:latest
-ADD ../../app /opt/hodavidhara
-WORKDIR /hodavidhara
+COPY . /data/hodavidhara
+WORKDIR /data/hodavidhara
 
 RUN npm install
 RUN npm install -g nodemon
