@@ -1,18 +1,21 @@
-hodavidhara:
+app:
   build: ../app/
+  restart: always
 
 nginx:
   build: ./nginx/
+  restart: always
   ports:
     - "80:80"
   links:
     - es:es
-    - hodavidhara:hodavidhara
+    - app:app
   volumes_from:
     - data
 
 es:
   build: ./es/
+  restart: always
   volumes_from:
     - data
 
