@@ -20,6 +20,7 @@
   "homepage": "http://hodavidhara.com",
   "dependencies": {
     "koa": "^0.21.0",
+    "koa-handlebars": "^0.5.7",
     "koa-router": "^5.1.2"
   }
 }
