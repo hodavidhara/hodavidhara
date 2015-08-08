@@ -17,5 +17,16 @@
   ],
   "dependencies": {
     "semantic-ui": "~2.0.7"
+  },
+  "overrides": {
+    "jquery": {
+      "main": "dist/jquery.min.js"
+    },
+    "semantic-ui": {
+      "main": [
+        "dist/semantic.min.js",
+        "dist/semantic.min.css"
+      ]
+    }
   }
 }
