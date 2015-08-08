@@ -1,0 +1,21 @@
+{
+  "name": "hodavidhara",
+  "main": "app.js",
+  "version": "0.0.0",
+  "homepage": "http://hodavidhara.com",
+  "authors": [
+    "David Hara <hakuhen@gmail.com>"
+  ],
+  "description": "The awesome personal website of David Hara.",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "semantic-ui": "~2.0.7"
+  }
+}

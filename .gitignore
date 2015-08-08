@@ -26,5 +26,12 @@ build/Release
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
 node_modules
 
+# Bower dependencies
+bower_components
+
+# Built files
+dist
+
+# Intellij project files
 .idea
 *.iml

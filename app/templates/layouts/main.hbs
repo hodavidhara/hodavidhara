@@ -6,7 +6,14 @@
     <title>hodavidhara</title>
 </head>
 <body>
-{{> navbar}}
-{{{@body}}}
+<div class="ui two column grid">
+
+    <div class="ui fourteen wide column">
+        {{{@body}}}
+    </div>
+    <div class="ui two wide column">
+        {{> nav}}
+    </div>
+</div>
 </body>
 </html>
