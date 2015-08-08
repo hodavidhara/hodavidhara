@@ -8,6 +8,6 @@ RUN npm install -g nodemon
 RUN npm install -g gulp
 RUN npm install -g bower
 
-bower install
+bower install --allow-root
 
 CMD ["npm", "run-script", "prod"]
