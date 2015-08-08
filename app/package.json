@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon --harmony app.js",
     "test": "npm test",
-    "build": "npm install && bower install && gulp build",
+    "build": "bower install && gulp build",
     "preprod": "npm run-script build",
     "prod": "nodemon --harmony app.js"
   },
