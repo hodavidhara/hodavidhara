@@ -8,4 +8,6 @@ RUN npm install -g nodemon
 RUN npm install -g gulp
 RUN npm install -g bower
 
+bower install
+
 CMD ["npm", "run-script", "prod"]
