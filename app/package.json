@@ -25,6 +25,7 @@
     "domquery": "^1.2.0",
     "domready": "^1.0.8",
     "handlebars": "^3.0.3",
+    "hbsfy": "^2.2.1",
     "koa": "^0.21.0",
     "koa-handlebars": "^0.5.7",
     "koa-router": "^5.1.2",
@@ -46,7 +47,6 @@
     "gulp-plumber": "^1.0.1",
     "gulp-uglify": "^1.2.0",
     "gulp-util": "^3.0.6",
-    "hbsfy": "^2.2.1",
     "main-bower-files": "^2.9.0"
   }
 }
