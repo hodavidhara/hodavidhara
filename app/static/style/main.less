@@ -1,13 +1,31 @@
 @brand-font-family: 'Poiret One', cursive;
+@brand-font-color: #444;
 
 * {
   font-family: @brand-font-family !important;
 }
 
+body {
+  color: @brand-font-color;
+  font-size: 1.5em;
+}
+
+main {
+  margin-top: 30px;
+}
+
 .splash {
-  margin-top: 400px;
+  margin-top: 300px;
 }
 
 .splash h1.ui.header {
   font-size: 6rem;
+}
+
+.project-card {
+  color: @brand-font-color;
+
+  &:hover {
+    color: @brand-font-color;
+  }
 }
