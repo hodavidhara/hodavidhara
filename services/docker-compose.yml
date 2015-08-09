@@ -16,6 +16,8 @@ nginx:
 es:
   build: ./es/
   restart: always
+  environment:
+    - ES_HEAP_SIZE=128m
   volumes_from:
     - data
 
