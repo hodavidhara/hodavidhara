@@ -10,4 +10,6 @@ RUN npm install -g bower
 
 RUN bower install --allow-root
 
+ENV NODE_ENV prod
+
 CMD ["npm", "run-script", "prod"]

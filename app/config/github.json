@@ -1,0 +1,13 @@
+{
+  "default": {
+    "type": "oauth",
+    "key": "2546e38fcebfb7ce0a6b",
+    "secret": ""
+  },
+
+  "prod": {
+    "type": "oauth",
+    "key": "2546e38fcebfb7ce0a6b",
+    "secret": ""
+  }
+}

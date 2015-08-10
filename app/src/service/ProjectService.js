@@ -1,42 +1,105 @@
-var request = require('request');
 var _ = require('lodash');
+var async = require('async');
+var GitHubApi = require('github');
+var conf = require('konfig')();
 
-var PROJECTS_REQUEST = {
-    url: 'https://api.github.com/users/hodavidhara/repos',
+var github = new GitHubApi({
+    version: "3.0.0",
     headers: {
         'User-Agent': 'hodavidhara/hodavidhara'
-    },
-    qs: {
-        sort: 'pushed'
     }
-};
+});
 
 var IGNORE_PROJECTS = ['Tumblr-Themes'];
 
-var ProjectService = function () {};
+var ProjectService = function () {
+};
 
 ProjectService.prototype.getProjects = function () {
+    return _getProjects().then(_processProjects)
+        .catch(function (err) {
+            console.log(err);
+        });
+};
+
+var _getProjects = function() {
     return new Promise(function (resolve, reject) {
-        request(PROJECTS_REQUEST, function (err, res, body) {
+        _authenticate();
+        github.repos.getFromUser({
+            sort: 'updated',
+            user: 'hodavidhara'
+        }, function (err, result) {
             if (err) {
-                reject(err);
+                console.log('error');
+                reject(err)
             } else {
-                var projects = _.map(JSON.parse(body), _cleanProject);
-                projects = _.filter(projects, function (project) {
-                    return !_.contains(IGNORE_PROJECTS, project.name);
-                });
+                console.log('result');
+                resolve(result);
+            }
+        })
+    })
+};
+
+var _processProjects = function (projects) {
+    return _loadLanguages(projects)
+        .then(_cleanProjects)
+        .then(_filterProjects);
+};
+
+var _loadLanguages = function (projects) {
+    console.log('test');
+    return new Promise(function (resolve, reject) {
+        async.each(projects, function (project, cb) {
+            _authenticate();
+            github.repos.getLanguages({
+                user: 'hodavidhara',
+                repo: project.name
+            }, function (err, body) {
+                delete body.meta;
+                project.languages = body;
+                cb()
+            });
+        }, function (err) {
+            if (err) {
+                reject(err)
+            } else {
                 resolve(projects);
             }
         })
+    })
+};
+
+var _cleanProjects = function (projects) {
+    return new Promise(function (resolve, reject) {
+        async.map(projects, _cleanProject, function (err, cleanProjects) {
+            resolve(cleanProjects);
+        });
     });
 };
 
-var _cleanProject = function(project) {
-    return {
+var _cleanProject = function(project, cb) {
+    cb(null, {
         'name': project.name,
         'description': project.description,
         'html_url': project.html_url,
-        'pushed_at': project.pushed_at
+        'pushed_at': project.pushed_at,
+        'languages': project.languages
+    })
+};
+
+var _filterProjects = function (projects) {
+    return new Promise(function (resolve, reject) {
+        async.filter(projects, function (project, cb) {
+            cb(!_.contains(IGNORE_PROJECTS, project.name));
+        }, function (filteredProjects) {
+            resolve(filteredProjects);
+        });
+    })
+};
+
+var _authenticate = function () {
+    if (conf.github.type) {
+        github.authenticate(conf.github);
     }
 };
 
