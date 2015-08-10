@@ -2,7 +2,7 @@
   "default": {
     "type": "oauth",
     "key": "2546e38fcebfb7ce0a6b",
-    "secret": "8492a1f4f50a0e0e976501feeae27286e4d2388c"
+    "secret": ""
   },
 
   "prod": {
