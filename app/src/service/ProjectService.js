@@ -30,10 +30,8 @@ var _getProjects = function() {
             user: 'hodavidhara'
         }, function (err, result) {
             if (err) {
-                console.log('error');
                 reject(err)
             } else {
-                console.log('result');
                 resolve(result);
             }
         })
@@ -47,7 +45,6 @@ var _processProjects = function (projects) {
 };
 
 var _loadLanguages = function (projects) {
-    console.log('test');
     return new Promise(function (resolve, reject) {
         async.each(projects, function (project, cb) {
             _authenticate();
