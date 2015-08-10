@@ -26,7 +26,6 @@ var _getProjects = function() {
     return new Promise(function (resolve, reject) {
         _authenticate();
         github.repos.getFromUser({
-            sort: 'updated',
             user: 'hodavidhara'
         }, function (err, result) {
             if (err) {
@@ -41,7 +40,8 @@ var _getProjects = function() {
 var _processProjects = function (projects) {
     return _loadLanguages(projects)
         .then(_cleanProjects)
-        .then(_filterProjects);
+        .then(_filterProjects)
+        .then(_sortProjects);
 };
 
 var _loadLanguages = function (projects) {
@@ -91,6 +91,12 @@ var _filterProjects = function (projects) {
         }, function (filteredProjects) {
             resolve(filteredProjects);
         });
+    })
+};
+
+var _sortProjects = function (projects) {
+    return new Promise(function (resolve, reject) {
+        resolve(_.sortByOrder(projects, 'pushed_at', 'desc'));
     })
 };
 
