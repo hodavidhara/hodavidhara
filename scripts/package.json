@@ -1,0 +1,16 @@
+{
+  "name": "scripts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "David Hara <hakuhen@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "elasticsearch": "^6.0.0",
+    "moment": "^2.10.6",
+    "nasa-apod": "^0.1.0"
+  }
+}

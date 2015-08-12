@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "nodemon --harmony app.js",
-    "test": "npm test",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "bower install --allow-root && gulp prod",
     "preprod": "npm run-script build",
     "prod": "nodemon --harmony app.js"
