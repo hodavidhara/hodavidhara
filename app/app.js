@@ -1,4 +1,5 @@
 "use strict";
+require('newrelic');
 var koa = require('koa');
 var siteRouter = require('./src/routes/site');
 var apiRouter = require('./src/routes/api');
