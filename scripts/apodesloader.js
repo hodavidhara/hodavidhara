@@ -36,5 +36,7 @@ var _indexPicture = function (picture) {
         setTimeout(loop, 500);
     }).catch(function (err) {
         console.log(err);
+        date.subtract(1, 'days');
+        setTimeout(loop, 500);
     });
 })();
