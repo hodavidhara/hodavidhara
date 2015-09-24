@@ -4,11 +4,11 @@
   "description": "The awesome personal website of David Hara.",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon --harmony app.js",
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "bower install --allow-root && gulp prod",
     "preprod": "npm run-script build",
-    "prod": "node --harmony app.js"
+    "prod": "node app.js"
   },
   "repository": {
     "type": "git",
