@@ -25,19 +25,19 @@ gulp.task('build', ['clean', 'libs', 'js', 'css']);
 gulp.task('clean', ['clean-libs', 'clean-js', 'clean-css']);
 
 gulp.task('clean-libs', function (cb) {
-    del([
+    return del([
         'dist/libs/*'
     ], cb);
 });
 
 gulp.task('clean-js', function (cb) {
-    del([
+    return del([
         'dist/js/*'
     ], cb);
 });
 
 gulp.task('clean-css', function (cb) {
-    del([
+    return del([
         'dist/css/*'
     ], cb);
 });
