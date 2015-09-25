@@ -1,5 +1,4 @@
 "use strict";
-require('newrelic');
 var koa = require('koa');
 var siteRouter = require('./src/routes/site');
 var apiRouter = require('./src/routes/api');
@@ -7,6 +6,9 @@ var handlebars = require('koa-handlebars');
 var serve = require('koa-static');
 
 var app = koa();
+if (app.env === "prod") {
+    require('newrelic');
+}
 
 app.use(handlebars({
     layoutsDir: 'templates/layouts',
