@@ -38,13 +38,25 @@ gulp.task('clean-js', function (cb) {
 
 gulp.task('clean-css', function (cb) {
     return del([
-        'dist/css/*'
+        'dist/style/*'
     ], cb);
 });
 
 gulp.task('libs', ['clean-libs'], function() {
-    return gulp.src(mainBowerFiles())
-        .pipe(gulp.dest('dist/lib'))
+    return gulp.src(mainBowerFiles({
+            overrides: {
+                pure: {
+                    main: 'pure-min.css'
+                },
+                'font-awesome': {
+                    main: [
+                        'css/font-awesome.min.css',
+                        'fonts/*'
+                    ]
+                }
+            }
+        }), { base: 'bower_components' })
+        .pipe(gulp.dest('dist/libs'))
 });
 
 gulp.task('js', ['clean-js'], function() {
@@ -58,7 +70,7 @@ gulp.task('js', ['clean-js'], function() {
 });
 
 gulp.task('css', ['clean-css'], function() {
-    return gulp.src('static/style/*.less')
+    return gulp.src('static/style/main.less')
         .pipe(plumber())
         .pipe(less())
         .pipe(autoprefixer())

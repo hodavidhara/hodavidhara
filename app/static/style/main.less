@@ -1,28 +1,56 @@
-@brand-font-family: 'Lato', sans-serif;
-@brand-font-color: #444;
+@import "mixins";
+@import "nav";
+@import "projectcard";
 
-* {
-  font-family: @brand-font-family !important;
-  font-weight: normal !important;
+// Box sizing
+html {
+  box-sizing: border-box;
 }
 
-body {
-  color: @brand-font-color;
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+// Fonts
+html, button, input, select, textarea,
+.pure-g [class *= "pure-u"] {
+  font-family: @brand-font-family;
+  font-weight: 300;
   font-size: 1.5em;
+  color: @brand-font-color;
+
+  @media @phone, @tablet {
+    font-size: 1em;
+  }
+}
+h1 {
+  font-weight: bolder;
 }
 
-main {
-  margin-top: 30px;
+// Main
+.main {
+  max-width: 50em;
+  margin: 0 auto 2em;
 }
 
+.header {
+  text-align: center;
+}
+
+.content {
+  margin: 1em;
+}
+
+// Index page
 .splash {
-  margin-top: 300px;
+  padding-top: 4em;
 }
 
-.splash h1.ui.header {
-  font-size: 6rem;
+.splash .header {
+  font-size: 4em;
 }
 
+// Project page
 .project-card {
   color: @brand-font-color;
 

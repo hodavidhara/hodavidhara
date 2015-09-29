@@ -24,6 +24,7 @@ ProjectService.prototype.getProjects = function () {
 
 var _getProjects = function() {
     return new Promise(function (resolve, reject) {
+        var time = new Date();
         _authenticate();
         github.repos.getFromUser({
             user: 'hodavidhara'
@@ -31,6 +32,7 @@ var _getProjects = function() {
             if (err) {
                 reject(err)
             } else {
+                console.log(new Date() - time);
                 resolve(result);
             }
         })
@@ -47,21 +49,21 @@ var _processProjects = function (projects) {
 var _loadLanguages = function (projects) {
     return new Promise(function (resolve, reject) {
         async.each(projects, function (project, cb) {
-            _authenticate();
             github.repos.getLanguages({
                 user: 'hodavidhara',
                 repo: project.name
             }, function (err, body) {
-                delete body.meta;
-                project.languages = body;
-                cb()
+                if (err) {
+                    project.languages = {};
+                    cb();
+                } else {
+                    delete body.meta;
+                    project.languages = body;
+                    cb()
+                }
             });
-        }, function (err) {
-            if (err) {
-                reject(err)
-            } else {
-                resolve(projects);
-            }
+        }, function () {
+            resolve(projects);
         })
     })
 };

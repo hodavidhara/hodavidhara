@@ -16,4 +16,3 @@ request({url: '/api/projects', json: true}, function(err, res, body) {
         });
     });
 });
-

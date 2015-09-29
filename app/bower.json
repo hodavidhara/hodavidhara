@@ -16,17 +16,7 @@
     "tests"
   ],
   "dependencies": {
-    "semantic-ui": "~2.0.7"
-  },
-  "overrides": {
-    "jquery": {
-      "main": "dist/jquery.min.js"
-    },
-    "semantic-ui": {
-      "main": [
-        "dist/semantic.min.js",
-        "dist/semantic.min.css"
-      ]
-    }
+    "pure": "~0.6.0",
+    "font-awesome": "~4.4.0"
   }
 }
