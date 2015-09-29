@@ -24,7 +24,6 @@ ProjectService.prototype.getProjects = function () {
 
 var _getProjects = function() {
     return new Promise(function (resolve, reject) {
-        var time = new Date();
         _authenticate();
         github.repos.getFromUser({
             user: 'hodavidhara'
@@ -32,7 +31,6 @@ var _getProjects = function() {
             if (err) {
                 reject(err)
             } else {
-                console.log(new Date() - time);
                 resolve(result);
             }
         })
