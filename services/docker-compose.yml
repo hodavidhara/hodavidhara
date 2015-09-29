@@ -1,6 +1,10 @@
 app:
   build: ../app/
   restart: always
+  volumes:
+    - /opt/code
+  volumes_from:
+    - data
 
 nginx:
   build: ./nginx/
@@ -12,6 +16,7 @@ nginx:
     - app:app
   volumes_from:
     - data
+    - app
 
 es:
   build: ./es/
@@ -22,7 +27,7 @@ es:
     - data
 
 data:
-  build: ./es/
+  image: busybox
   command: /bin/true
   volumes:
     - /usr/share/elasticsearch/config

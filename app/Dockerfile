@@ -1,6 +1,6 @@
 FROM node:latest
-ADD . /code
-WORKDIR /code
+ADD . /opt/code
+WORKDIR /opt/code
 EXPOSE 3000
 
 RUN npm install
