@@ -87,7 +87,7 @@ var _cleanProject = function(project, cb) {
 var _filterProjects = function (projects) {
     return new Promise(function (resolve, reject) {
         async.filter(projects, function (project, cb) {
-            cb(!_.contains(IGNORE_PROJECTS, project.name));
+            cb(!_.includes(IGNORE_PROJECTS, project.name));
         }, function (filteredProjects) {
             resolve(filteredProjects);
         });
@@ -96,7 +96,7 @@ var _filterProjects = function (projects) {
 
 var _sortProjects = function (projects) {
     return new Promise(function (resolve, reject) {
-        resolve(_.sortByOrder(projects, 'pushed_at', 'desc'));
+        resolve(_(projects).sortBy('pushed_at').reverse());
     })
 };
 
