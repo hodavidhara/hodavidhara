@@ -29,4 +29,3 @@ services:
       - ES_HEAP_SIZE=128m
     volumes:
       - /usr/share/elasticsearch/config
-    network_mode: "host"
