@@ -1,33 +1,32 @@
-app:
-  build: ../app/
-  restart: always
-  volumes:
-    - /opt/code
-  volumes_from:
-    - data
+version: '2'
+services:
+  app:
+    build: ../app/
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - /opt/code
 
-nginx:
-  build: ./nginx/
-  restart: always
-  ports:
-    - "80:80"
-  links:
-    - es:es
-    - app:app
-  volumes_from:
-    - data
-    - app
+  nginx:
+    build: ./nginx/
+    restart: always
+    ports:
+      - "80:80"
+    links:
+      - es:es
+      - app:app
+    volumes_from:
+      - app
 
-es:
-  build: ./es/
-  restart: always
-  environment:
-    - ES_HEAP_SIZE=128m
-  volumes_from:
-    - data
-
-data:
-  image: busybox
-  command: /bin/true
-  volumes:
-    - /usr/share/elasticsearch/config
+  es:
+    build: ./es/
+    restart: always
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      - ES_HEAP_SIZE=128m
+    volumes:
+      - /usr/share/elasticsearch/config
+    network_mode: "host"

@@ -1,4 +1,4 @@
-FROM elasticsearch
+FROM elasticsearch:latest
 ADD config /usr/share/elasticsearch/config
-RUN plugin -i lmenezes/elasticsearch-kopf/master
-RUN plugin -i mobz/elasticsearch-head
+RUN plugin install lmenezes/elasticsearch-kopf/master
+RUN plugin install mobz/elasticsearch-head
